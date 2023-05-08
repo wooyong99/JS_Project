@@ -7,3 +7,22 @@ body{
   align-items: center;
   height:100vh;
 }
+#clock-title{
+  color:white;
+  text-align:center;
+  font-size: 70px;
+}
+.js-form > input, .js-toDoForm> input{
+  background: none;
+  color:white;
+  border:0px;
+  padding:15px 30px;
+  border-bottom:2px solid white;
+  font-size:20px;
+  text-align: center;
+}
+::placeholder{
+  color:white;
+  font-size:20px;
+  font-weight:600;
+}
