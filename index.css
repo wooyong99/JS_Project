@@ -26,3 +26,21 @@ body{
   font-size:20px;
   font-weight:600;
 }
+.greetings{
+  color:white;
+  text-align: center;
+}
+.js-toDoList{
+  padding:0px;
+}
+.js-toDoList > li{
+  list-style-type: none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+}
+button{
+  margin-top: 5px;
+  margin-right:10px;
+}
