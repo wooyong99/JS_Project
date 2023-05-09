@@ -26,9 +26,11 @@ body{
   font-size:20px;
   font-weight:600;
 }
+/* .greeting, .js-toDoList css 변경 */
 .greetings{
   color:white;
   text-align: center;
+  display:none;
 }
 .js-toDoList{
   padding:0px;
@@ -43,4 +45,11 @@ body{
 button{
   margin-top: 5px;
   margin-right:10px;
+}
+/* 이름 입력 시 .js-form display 속성값 none처리 */
+.js-form{
+  display:none;
+}
+.showing{
+  display:block;
 }
