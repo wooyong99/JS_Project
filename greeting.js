@@ -1,9 +1,19 @@
 const form = document.querySelector(".js-form");
 const input = form.querySelector("input");
 const greeting = document.querySelector(".js-greetings");
+const header = document.querySelector("header");
 
 const USER_LS = "currentUser";
 const SHOWING_CN = "showing";
+
+function logout(){
+  localStorage.removeItem(USER_LS);
+  deleteAllTodo();
+  header.classList.remove(SHOWING_CN);
+  form.classList.add(SHOWING_CN);
+  greeting.classList.remove(SHOWING_CN);
+  input.value = "";
+}
 
 function saveName(text){
   localStorage.setItem(USER_LS, text);
@@ -25,6 +35,9 @@ function paintGreeting(text){
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
   greeting.innerHTML=`Hello ! ${text}`;
+  header.classList.add(SHOWING_CN);
+
+  header.addEventListener("click", logout);
 }
 
 function loadName(){
@@ -38,9 +51,9 @@ function loadName(){
 
 function init(){
   loadName();
+  header.addEventListener("click", logout);
 }
 // 새로고침할 경우 임시로 값 삭제하는 코드
-localStorage.removeItem(USER_LS);
 init();
 
 

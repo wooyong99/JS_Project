@@ -21,6 +21,10 @@ function getWeather(lat, lon){
         console.log(weather);
         getWeatherImg(weather);
 
+        const city = json.name;
+        const place = document.querySelector(".city");
+        place.innerHTML = `${city}`;
+
         const temperature = json.main.temp;
         const temp = document.querySelector(".temp");
         temp.innerHTML = `${temperature}`;
@@ -40,13 +44,6 @@ function getWeather(lat, lon){
         const clouds= json.clouds.all;
         const cloud = document.querySelector(".clouds");
         cloud.innerHTML = `${clouds}`;
-
-        const city = json.name;
-        const place = document.querySelector(".city");
-        place.innerHTML = `${city}`;
-        
-        
-        weather.innerText = `${temperature} @ ${place}`;
     });
 }
 

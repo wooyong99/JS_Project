@@ -5,6 +5,15 @@ const toDoList = document.querySelector(".js-toDoList");
 const TODOS_LS = "toDos";
 let toDos = [];
 
+function deleteAllTodo(){
+  console.log("cf")
+  while( toDoList.hasChildNodes()){
+    toDoList.removeChild(toDoList.firstChild);
+  }
+  toDos = [];
+  saveTodo();
+}
+
 function deleteTodo(e){
   const delete_btn = e.target;
   const delete_li = delete_btn.parentNode;

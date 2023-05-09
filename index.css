@@ -48,6 +48,7 @@ body{
   text-align: center;
   display:none;
   font-size:30px;
+  text-shadow: 1px 1px 1px #000;
 }
 .js-toDoList{
   padding:0px;
@@ -94,6 +95,7 @@ img{
 /* weather 관련 태그 css추가 */
 .js-weather{
   margin-top: 50px;
+  margin-left: -30px;
   color:white;
   display: flex;
   justify-content: center;
@@ -107,4 +109,25 @@ img{
   width:230px;
   height:230px;
   padding-top:35px;
+}
+.today-weather{
+  width:400px;
+}
+.today-weather > h2, .city{
+  display:flex;
+  justify-content: center;
+}
+.weather-text >div {
+  display:flex;
+  justify-content: space-between;
+}
+/* 헤더부분 */
+header {
+  font-size:20px;
+  color:white;
+  text-shadow: 1px 1px 1px #000;
+  position: absolute;
+  top:0;
+  right:10%;
+  display:none;
 }
