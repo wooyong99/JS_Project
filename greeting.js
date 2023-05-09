@@ -39,7 +39,8 @@ function loadName(){
 function init(){
   loadName();
 }
-init();
 // 새로고침할 경우 임시로 값 삭제하는 코드
 localStorage.removeItem(USER_LS);
+init();
+
 
