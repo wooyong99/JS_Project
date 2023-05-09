@@ -2,24 +2,24 @@ const form2 = document.querySelector(".js-toDoForm");
 const input2 = form2.querySelector("input");
 const toDoList = document.querySelector(".js-toDoList");
 
-const TODO_LS = "toDos";
-
+const TODOS_LS = "toDos";
 let toDos = [];
 
 function deleteTodo(e){
-  const btn = e.target;
-  const li = btn.parentNode;
-  toDoList.removeChild(li);
-  const cleanToDos = toDos.filter(function(abc){
-    return abc.id !== parseInt(li.id);
+  const delete_btn = e.target;
+  const delete_li = delete_btn.parentNode;
+  toDoList.removeChild(delete_li);
+  
+  const cleanTodos = toDos.filter(function(todo){
+    return todo.id !== parseInt(delete_li.id);
   });
-  toDos = cleanToDos;
-  saveToDos();
-
+  console.log(cleanTodos);
+  toDos = cleanTodos;
+  saveTodo();
 }
 
-function saveToDos(){
-  localStorage.setItem(TODO_LS, JSON.stringify(toDos));
+function saveTodo(){
+  localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
 function paintTodo(text){
@@ -27,40 +27,38 @@ function paintTodo(text){
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
   const newId = toDos.length+1;
+  
   delBtn.innerHTML = "❌";
-  delBtn.addEventListener("click", deleteTodo);
   span.innerText = text;
   li.appendChild(delBtn);
   li.appendChild(span);
   li.id = newId;
+
+  delBtn.addEventListener("click",deleteTodo);
+
   toDoList.appendChild(li);
+
   const toDoObj = {
     text : text,
     id : newId
-  };
+  }
   toDos.push(toDoObj);
-  saveToDos();
+  saveTodo();
 }
 
 function handleSubmit(e){
   e.preventDefault();
-  const currentValue = input2.value;
-  paintTodo(currentValue);
-  input2.value="";
+  paintTodo(input2.value);
+  input2.value = "";
 }
-
 function loadTodo(){
-  const currentTodos = localStorage.getItem(TODO_LS);
-  console.log(currentTodos);
+  const currentTodos = localStorage.getItem(TODOS_LS);
   if(currentTodos !== null){
+    console.log(currentTodos);
     const parsedTodos = JSON.parse(currentTodos);
-    parsedTodos.forEach(function(todos){
-      console.log(todos);
+    parsedTodos.forEach(function(todo){
+      paintTodo(todo.text);
     })
-    parsedTodos.forEach(function(todos){
-      paintTodo(todos.text);
-    })
-    
   }
 }
 
@@ -68,4 +66,5 @@ function init(){
   loadTodo();
   form2.addEventListener("submit", handleSubmit);
 }
+
 init();
