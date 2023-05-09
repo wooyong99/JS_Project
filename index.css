@@ -32,11 +32,15 @@ body{
   font-size:30px;
   text-align: center;
 }
+:focus{
+  outline: none;
+}
 ::placeholder{
   color:white;
   font-size:26px;
   font-weight:600;
   text-shadow: 1px 1px 1px #000;
+  border: 0px;
 }
 /* .greeting, .js-toDoList css 변경 */
 .greetings{
